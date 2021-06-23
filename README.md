@@ -8,7 +8,7 @@ This is a sample project to create a Serverless Inference using AWS Lambda (cont
 1. User send a image URL to API Gateway (HTTP);
 2. API Gateway send request to lambda, which load pre-trained model, do inference on image and return predicted label to user.
 
-This example is based on [Caltech256](http://www.vision.caltech.edu/Image_Datasets/Caltech256/) public dataset. From this dataset, 4 classe was chosen to be predicted by this model:
+This example is based on [Caltech256](http://www.vision.caltech.edu/Image_Datasets/Caltech256/) public dataset. From this dataset, 4 classes was chosen to be predicted by this model:
 
 * 010.beer-mug
 * 041.coffee-mug
@@ -94,7 +94,7 @@ aws sts get-caller-identity
 
 ### Install Docker and SAM
 
-Check if docker is installed and SAM:
+Check if docker and SAM are installed:
 
 ```
 docker --version
@@ -102,14 +102,14 @@ docker --version
 sam --version
 ```
 
-If it's not installed, follow official documentation to install it:
+If they are not installed, follow official documentation to install:
 
 * [Docker](https://docs.docker.com/get-docker/)
 * [AWS SAM](https://aws.amazon.com/serverless/sam/)
 
 ### Clone this repo
 
-Clone this repo on your Cloud9 environment
+Clone this repo on your Cloud9 environment:
 
 ```
 git clone https://github.com/aws-samples/aws-lambda-container-inference-pytorch.git
@@ -144,7 +144,7 @@ export ECR_URL=<AWS_ACCOUNT_ID>.dkr.ecr.<REGION>.amazonaws.com
 
 ### Login on ECR Repo
 
-Log into ECR, on your AWS account:
+Log into ECR, on your Cloud9 env:
 
 ```
 aws ecr get-login-password | docker login --username AWS --password-stdin $ECR_URL
@@ -152,7 +152,7 @@ aws ecr get-login-password | docker login --username AWS --password-stdin $ECR_U
 
 ### Sam Deploy
 
-Run following commands to generate docker image, push it to ECR and deploy Lambda and API Gateway (HTTP) using SAM:
+Run following commands to generate docker image, push it to ECR, and deploy Lambda and API Gateway (HTTP) using SAM:
 
 ```
 sam build
@@ -160,7 +160,7 @@ sam build
 sam deploy -g
 ```
 
-Whenever asked, enter $REPO_URI information on reporitory info.
+Whenever asked, enter $REPO_URI information on repository info.
 
 ### Testing
 
