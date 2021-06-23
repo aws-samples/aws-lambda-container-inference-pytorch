@@ -1,0 +1,12 @@
+.DS_Store
+*.zip
+.venv
+.env
+ __pycache__/
+ *.pyc
+.vscode
+logs/
+.aws-sam/
+samconfig.toml
+dataset/
+model/
